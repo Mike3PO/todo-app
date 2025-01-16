@@ -38,8 +38,6 @@ function App() {
     handleSaveData(newTodoList)
   }
 
-  let ivalue = ''
-
   function handleEditTodo(index) {
     // update inputText to current text
     // delete current todo
