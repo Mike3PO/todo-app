@@ -1,5 +1,5 @@
 export function TodoCard(props) {
-    const { todo, handleDeleteTodo, handleCompleteTodo, todoIndex } = props
+    const { todo, handleEditTodo, handleDeleteTodo, handleCompleteTodo, todoIndex } = props
     return (
         <div className="card todo-item">
             <p>{todo.input}</p>
@@ -8,6 +8,11 @@ export function TodoCard(props) {
                     handleCompleteTodo(todoIndex)
                 }}>
                     <h6>Done</h6>
+                </button>
+                <button onClick={() => {
+                    handleEditTodo(todoIndex)
+                }}>
+                    <h6>Edit</h6>
                 </button>
                 <button onClick={() => {
                     handleDeleteTodo(todoIndex)
