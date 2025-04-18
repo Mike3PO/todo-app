@@ -22,16 +22,15 @@ function App() {
 
   const [selectedTab, setSelectedTab] = useState('All')
 
+  /*
   const priorities = ['Low', 'Medium', 'High']
-
-  const [priorityIndex, setPriorityIndex] = useState(0)
+  */
 
   //Change Priority
   function handlePriorityTodo(index) {
     let newTodoList = [...todos]
     let priorityTodo = todos[index]
-    setPriorityIndex((priorityIndex + 1) % 3)
-    priorityTodo['priority'] = priorities[priorityIndex]
+    priorityTodo['priority'] = priorityTodo['priority'] == 'Low' ? 'Medium' : priorityTodo['priority'] == 'Medium' ? 'High' : 'Low'
     newTodoList[index] = priorityTodo
     setTodos(newTodoList)
     handleSaveData(newTodoList)
