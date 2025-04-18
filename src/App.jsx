@@ -22,6 +22,10 @@ function App() {
 
   const [selectedTab, setSelectedTab] = useState('All')
 
+  const [priority, setPriority] = useState('Low')
+
+  const [priorityIndex, setPriorityIndex] = useState(0)
+
   function handleAddTodo(newTodo) {
     const newTodoList = [...todos, { input: newTodo, complete: false }]
     setTodos(newTodoList)
@@ -71,7 +75,7 @@ function App() {
     <>
       <Header selectedTab= {selectedTab} todos={todos}/>
       <Tabs selectedTab={selectedTab} setSelectedTab={setSelectedTab} todos={todos}/>
-      <TodoList handleEditTodo={handleEditTodo} handleCompleteTodo={handleCompleteTodo} handleDeleteTodo={handleDeleteTodo} selectedTab={selectedTab} todos={todos}/>
+      <TodoList priorityIndex={priorityIndex} setPriorityIndex={setPriorityIndex} priority={priority} setPriority={setPriority} handleEditTodo={handleEditTodo} handleCompleteTodo={handleCompleteTodo} handleDeleteTodo={handleDeleteTodo} selectedTab={selectedTab} todos={todos}/>
       <TodoInput todoInput={todoInput} setTodoInput={setTodoInput} handleAddTodo={handleAddTodo}/>
     </>
   )
