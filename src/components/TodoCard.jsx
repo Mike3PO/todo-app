@@ -1,7 +1,5 @@
 export function TodoCard(props) {
-    const { todo, handleEditTodo, handleDeleteTodo, handleCompleteTodo, todoIndex, priority, setPriority, priorityIndex, setPriorityIndex } = props
-
-    const priorities = ['Low', 'Medium', 'High']
+    const { todo, handlePriorityTodo, handleEditTodo, handleDeleteTodo, handleCompleteTodo, todoIndex, priority } = props
 
     const lowPriorityStyle = {
         background: 'green',
@@ -13,6 +11,10 @@ export function TodoCard(props) {
 
     const highPriorityStyle = {
         background: 'red',
+    };
+
+    const completePriorityStyle = {
+        background: 'grey',
     };
 
     return (
@@ -34,10 +36,9 @@ export function TodoCard(props) {
                 }}>
                     <h6>Delete</h6>
                 </button>
-                <button style={priority == 'Low' ? lowPriorityStyle : priority == 'Medium' ? mediumPriorityStyle : highPriorityStyle} 
+                <button disabled={todo.complete} style={todo.complete ? completePriorityStyle : todo.priority == 'Low' ? lowPriorityStyle : todo.priority == 'Medium' ? mediumPriorityStyle : highPriorityStyle} 
                         onClick={() => {
-                            setPriorityIndex((priorityIndex + 1) % 3)
-                            setPriority(priorities[priorityIndex])
+                            handlePriorityTodo(todoIndex)
                         }}>
                     <h6>Priority</h6>
                 </button>
